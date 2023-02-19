@@ -1,0 +1,1 @@
+#[for s in var.list : upper(s)]
