@@ -51,7 +51,7 @@ data "external" "my_json_parser" {
   program = ["python3", "${path.module}/modules/parse_json.py", local.my_json_2]
 }
 
-output "name_using_python" {
+output "name_using_python_json_parser" {
   value = data.external.my_json_parser.result["name"]
 }
 
@@ -59,6 +59,6 @@ output "name_using_python" {
 #   value = data.external.my_json_parser.result["age"]
 # }
 
-output "city_using_python" {
+output "city_using_python_json_parser" {
   value = data.external.my_json_parser.result["city"]
 }
