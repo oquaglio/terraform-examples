@@ -1,4 +1,4 @@
-# tf-types-and-functions
+# terraform-constructs
 
 Terraform lanuage construct practice
 
