@@ -1,6 +1,6 @@
 # terraform-constructs
 
-Terraform lanuage construct practice
+Playpen for Terraform lanuage constructs.
 
 ## Init
 
