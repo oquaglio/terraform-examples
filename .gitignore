@@ -30,3 +30,6 @@ override.tf.json
 
 .envrc
 .terraform
+
+tfplan*
+state.json
