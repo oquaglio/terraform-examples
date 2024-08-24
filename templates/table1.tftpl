@@ -1,0 +1,16 @@
+COPY INTO ${database_name}.${schema_name}.${table_name} (${col_list}) FROM
+(
+    SELECT
+        current_timestamp() as DU_CREATION_DATE_UTC,
+        'DU_COMMIT_ID'::string as DU_COMMIT_ID,
+        'DU_BATCH_ID'::string as DU_BATCH_ID,
+        S3_FILENAME,
+        S3_FILE_ROW_NUMBER,
+        TRY_CAST(RAW_DATA:timestamp::TEXT as TIMESTAMP_NTZ) as TIMESTAMP_UTC,
+        RAW_DATA:field1::text AS FIELD1,
+        try_to_number(RAW_DATA:field2::text,38,15) AS FIELD2,
+    FROM
+        @${database_name}.${schema_name}.${stage_name}/${s3_path}
+        (FILE_FORMAT => ${database_name}.${schema_name}.${file_format})
+)
+ON_ERROR = skip_file
