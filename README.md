@@ -16,3 +16,13 @@ terraform init -chdir=../modules
 > data.external.my_json_parser
 
 > data.external.my_json_parser.result["name"]
+
+### Maps
+
+> local.example_map.a
+
+> { for key, val in local.example_map : key => val }
+
+> local.tables
+
+> local.tables.TABLE_1.cols
